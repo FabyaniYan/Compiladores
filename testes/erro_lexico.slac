@@ -1,0 +1,7 @@
+# o caractere @ nao pertence ao alfabeto da SLAC2
+proc main()
+locvars
+   x is int;
+start
+   x << 1 @ 2;
+end

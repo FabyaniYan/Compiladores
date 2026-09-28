@@ -1,0 +1,12 @@
+/# Programa 3 da especificacao:
+   definicao e chamada de funcao #/
+func SOMA(A: int, B: int): int
+start
+    return A+B;
+end
+
+# programa principal
+proc main()
+start
+   echo( SOMA(1,2) );
+end

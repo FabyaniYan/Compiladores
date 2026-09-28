@@ -1,0 +1,8 @@
+# a variavel x e declarada duas vezes no mesmo escopo
+proc main()
+locvars
+   x is int;
+   x is chr;
+start
+   get(x);
+end

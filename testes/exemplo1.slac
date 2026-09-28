@@ -1,0 +1,9 @@
+# Programa 2 da especificacao: leitura e escrita de um inteiro
+proc main()
+locvars
+   x is int;
+start
+  echo("Entre com um numero inteiro:");
+  get(x);
+  echo("O numero que voce digitou e:", x);
+end

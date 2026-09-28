@@ -1,0 +1,5 @@
+# falta o ponto e virgula depois do comando echo
+proc main()
+start
+   echo("ola")
+end

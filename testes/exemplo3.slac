@@ -1,0 +1,69 @@
+/# Exercita globvars, vetores, ref, todos os comandos
+   e a hierarquia de precedencia de operadores #/
+globvars
+   total, limite is int;
+   nomes is chr[255];
+
+proc ZERA(ref v: int[10], n: int)
+locvars
+   i is int;
+start
+   for i from 1 to n by 1 do
+      v[i] << 0;
+   end;
+end
+
+func CLASSIFICA(a: int, b: int, c: int): logic
+start
+   return a + b > c & b = c | ~(a < 0);
+end
+
+proc main()
+locvars
+   a, b, c is int;
+   ok is logic;
+   letra is chr;
+   dados is int[10];
+start
+   echo("Entre com tres valores inteiros:");
+   get(a); get(b); get(c);
+   total << 0;
+   limite << 100;
+   letra << 'x';
+   ok << CLASSIFICA(a, b, c);
+
+   case (a + b < c | a + c < b)
+      echo("Nao formam um triangulo.");
+   otherwise
+      case (a = b & b = c)
+         echo("Equilatero");
+      otherwise
+         echo("Escaleno ou isosceles");
+      end;
+   end;
+
+   while (a < 1 | a > limite) do
+      echo("Valor invalido, digite novamente:");
+      get(a);
+   end;
+
+   repeat
+      total << total + a;
+      a << a - 1;
+   until (a = 0);
+
+   for a from 10 to 1 by -1 do
+      dados[a] << a * 2;
+      total << total + dados[a] // 2;
+   end;
+
+   choose (c)
+      match 0        -> echo("Nenhuma acao necessaria.");
+      match 1, 2, 3  -> echo("URGENTE");
+      match 200, 201 -> echo("Prioridade media");
+      others         -> echo("Codigo desconhecido");
+   end;
+
+   ZERA(dados, 10);
+   echo("Total: ", total, " ok: ", ok);
+end
